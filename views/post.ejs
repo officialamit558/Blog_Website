@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= post.title %></title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1><%= post.title %></h1>
+  <p><%= post.content %></p>
+  <p>Created At: <%= post.createdAt.toDateString() %></p>
+
+  <h2>Edit Post</h2>
+    <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
+        <label for="title">Title</label><br>
+        <input type="text" id="title" name="title" value="<%= post.title %>"><br>
+        <label for="content">Content</label><br>
+        <textarea id="content" name="content"><%= post.content %></textarea><br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

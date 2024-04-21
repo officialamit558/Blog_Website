@@ -1,0 +1,48 @@
+<!-- views/layout.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/posts/new">Create Post</a></li>
+        <li><a href="/profile">Profile</a></li>
+      </ul>
+    </nav>
+    <div class="auth-links">
+      <% if (typeof currentUser === 'undefined') { %>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+      <% } else { %>
+        <a href="/logout">Logout</a>
+      <% } %>
+    </div>
+  </header>
+  
+  <main class="container">
+    <% block('content') %>
+  </main>
+  
+  <footer>
+    <div class="contact">
+      <h2>Contact Us</h2>
+      <!-- Contact form -->
+    </div>
+    <div class="location">
+      <h2>Our Location</h2>
+      <!-- Location information -->
+    </div>
+  </footer>
+</body>
+</html>

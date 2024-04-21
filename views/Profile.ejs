@@ -1,0 +1,73 @@
+<!-- views/profile.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-info {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .profile-name {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .profile-id {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .logout-link {
+      display: block;
+      text-align: center;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .logout-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="profile-info">
+      <img src="<%= user.photo %>" class="profile-img" alt="Profile Image">
+      <div class="profile-name"><%= user.username %></div>
+      <div class="profile-id">User ID: <%= user._id %></div>
+    </div>
+    <a href="/logout" class="logout-link">Logout</a>
+  </div>
+
+</body>
+</html>
