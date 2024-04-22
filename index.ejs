@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/Profile">Profile</a></li>
+        <li><a href="/posts/new">Create Post</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content Section -->
+  <main class="container">
+    <h1>Welcome to My Blog</h1>
+    <!-- Display posts -->
+    <% posts.forEach(post => { %>
+      <div class="post">
+        <h2><%= post.title %></h2>
+        <p><%= post.content %></p>
+        <!-- Add any images, videos, etc. -->
+        <a href="/posts/<%= post._id %>/edit">Edit</a>
+        <form action="/posts/<%= post._id %>?_method=DELETE" method="POST"> <!-- Use method override for DELETE request -->
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete</button>
+        </form>
+      </div>
+    <% }) %>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+  <div class="contact">
+    <h2>Contact Us</h2>
+    <form action="/submit-contact" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+  <div class="location">
+    <h2>Our Location</h2>
+    <p>Jawahar Lal Nehru Marg </p>
+    <p>Jhalana Gram, Malviya Nagar</p>
+    <p>Jaipur, Rajasthan 302017</p>
+  </div>
+  <div class="copyright">
+    <p>&copy; 2024 Created By AMIT. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
